@@ -35,7 +35,7 @@ const Shop = () => {
 
   // Rendering
   return products.length === 0 ? (
-    <></>
+    <><h1 className="text-center font-palanquin text-xl text-coral-red">Loading.....</h1></>
   ) : (
     <>
       <section id="products" className="max-container max-sm:mt-12 ">

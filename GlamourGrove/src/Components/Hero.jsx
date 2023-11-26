@@ -1,4 +1,4 @@
-import IMAGES from "../../Utils/Constant/slider.jsx";
+import IMAGES from "../../Utils/Constant/slider";
 import Button from "./Button";
 import { useState } from "react";
 const Hero = () => {

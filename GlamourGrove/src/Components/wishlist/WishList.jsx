@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import WishlistMain from "./wishlistMain";
+import WishlistMain from "./WishlistMain";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 

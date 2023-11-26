@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useProduct } from "../../Utils/CustomHooks/useProduct";
 import ShopMain from "./ShopMain";
-import sortByAsc from "../../Utils/HelperFunction/SortByAsc";
+import sortByAsc from "../../Utils/HelperFunction/sortByAsc";
 import sortByDes from "../../Utils/HelperFunction/sortByDes";
 import store from "../app/store";
 import { Link } from "react-router-dom";

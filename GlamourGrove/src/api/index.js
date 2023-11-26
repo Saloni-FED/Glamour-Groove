@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// const url = "http://localhost:3000";
 const url = "https://glamour-groove-server.onrender.com"
 
 export const signup = (formData) => axios.post(`${url}/users/signup`, formData);

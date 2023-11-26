@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import Products from "../API/models/Product.js";
+import Products from "./models/Product.js";
 import { Stripe } from "stripe";
 import dotenv from 'dotenv'
 dotenv.config()

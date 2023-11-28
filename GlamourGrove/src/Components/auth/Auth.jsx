@@ -36,9 +36,8 @@ const Auth = () => {
         navigate("/shop");
       }
     } catch (error) {
-      console.log(error);
-      console.log(error.message)
-      toast.error("Invalid User Please Sign up")
+      console.log(error.response.data.message)
+      toast.error(`${error.response.data.message}`)
     }
   };
   return (

@@ -4,13 +4,11 @@ import { useProduct } from "../../Utils/CustomHooks/useProduct";
 import ShopMain from "./ShopMain";
 import sortByAsc from "../../Utils/HelperFunction/sortByAsc";
 import sortByDes from "../../Utils/HelperFunction/sortByDes";
-import store from "../app/store";
-import { Link } from "react-router-dom";
+
 
 // Component
 const Shop = () => {
   const [products, setProducts] = useProduct();
-  console.log(products);
   const [originalProducts] = useProduct();
   const [isAsc, setIsAsc] = useState(false);
   const [isDesc, setIsDesc] = useState(false);

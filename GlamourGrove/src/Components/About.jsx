@@ -2,7 +2,6 @@ import React from "react";
 import { FaGithub,FaLinkedin } from 'react-icons/fa'
 import { FaInstagram } from "react-icons/fa6"
 const About = () => {
-  console.log("Yo");
   return (
     <div className=" w-full md:w-1/2 m-auto mt-20 font-montserrat">
       <h1 className="text-center text-coral-red font-bold text-3xl">

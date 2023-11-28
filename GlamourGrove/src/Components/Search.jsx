@@ -32,13 +32,13 @@ const Search = () => {
       <div className="flex flex-wrap justify-center w-full mt-5 font-montserrat">
         <div className="md:w-1/4  h-fit md:text-left yext-center">
           <AiOutlineMenu
-            className="font-bold text-3xl cursor-pointer text-purple-950"
+            className="font-bold text-3xl cursor-pointer text-coral-red"
             onClick={() => {
               setIsMenu(!isMenu);
             }}
           />
           {isMenu && (
-            <ul className="flex flex-col gap-5 mt-5 cursor-pointer text-coral-red font-bold text-lg w-fit xl:visible">
+            <ul className="flex flex-col gap-5 mt-5 cursor-pointer text-slate-gray font-bold text-lg w-fit xl:visible">
               <li
                 className="transition-all linear duration-300 hover:scale-110"
                 onClick={() => {

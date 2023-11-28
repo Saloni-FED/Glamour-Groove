@@ -71,11 +71,12 @@ const Header = () => {
         <div className=" flex gap-5 max-md:flex-col">
           <NavLink to="auth">
             {isItemInLocalStorage("userInfo") ? (
-              <div 
-              className="border border-coral-red px-4 py-2 rounded-md font-bold max-sm:font-medium max-sm:px-6 max-sm:py- w-fit text-white max-md:mt-3 bg-coral-red hover:bg-red-500">
-              onClick={()=>{
-                localStorage.removeItem('userInfo')
-              }}  
+              <div
+                className="border border-coral-red px-4 py-2 rounded-md font-bold max-sm:font-medium max-sm:px-6 max-sm:py- w-fit text-white max-md:mt-3 bg-coral-red hover:bg-red-500"
+                onClick={() => {
+                  localStorage.removeItem("userInfo");
+                }}
+              >
                 logout
               </div>
             ) : (

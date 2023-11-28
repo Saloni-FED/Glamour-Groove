@@ -9,12 +9,17 @@ import { useSelector } from "react-redux";
 const Header = () => {
   let [isOpen, setIsOpen] = useState(false);
   let cartItems = useSelector((state) => state.cart.cartItems);
-  console.log(Object.values(cartItems));
+
+  // Function to check if present in local storage or not
+  function isItemInLocalStorage(key) {
+    return localStorage.getItem(key) !== null;
+  }
+
   let cartQuantity = Object.values(cartItems).reduce(
     (accumulator, currentValue) => accumulator + currentValue.quantity,
     0
   );
-  console.log(cartQuantity)
+  console.log(cartQuantity);
 
   return (
     <header className="flex justify-around md:items-center py-2 max-md:flex-col max-md:gap-3">
@@ -65,9 +70,19 @@ const Header = () => {
         </nav>
         <div className=" flex gap-5 max-md:flex-col">
           <NavLink to="auth">
-            <div className="border border-coral-red px-4 py-2 rounded-md font-bold max-sm:font-medium max-sm:px-6 max-sm:py- w-fit text-white max-md:mt-3 bg-coral-red hover:bg-red-500">
-              Sign in
-            </div>
+            {isItemInLocalStorage("userInfo") ? (
+              <div 
+              className="border border-coral-red px-4 py-2 rounded-md font-bold max-sm:font-medium max-sm:px-6 max-sm:py- w-fit text-white max-md:mt-3 bg-coral-red hover:bg-red-500">
+              onClick={()=>{
+                localStorage.removeItem('userInfo')
+              }}  
+                logout
+              </div>
+            ) : (
+              <div className="border border-coral-red px-4 py-2 rounded-md font-bold max-sm:font-medium max-sm:px-6 max-sm:py- w-fit text-white max-md:mt-3 bg-coral-red hover:bg-red-500">
+                Sign in
+              </div>
+            )}
           </NavLink>
           <div className="flex ">
             <NavLink to="/cart">

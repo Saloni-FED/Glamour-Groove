@@ -53,7 +53,7 @@ const ProductDetails = () => {
         </h4>
         <div className="flex flex-wrap gap-3 mt-3">
           <div
-            className="bg-red-200 rounded-full w-fit p-5 cursor-pointer"
+            className="rounded-md border-2 w-fit p-5 font-bold text-2xl text-coral-red max-md:text-lg cursor-pointer"
             onClick={() => {
               if (
                 cartItems[products._id] &&
@@ -66,14 +66,14 @@ const ProductDetails = () => {
             -
           </div>
           {cartItems[products._id] && cartItems[products._id].quantity > 0 ? (
-            <div className="rounded-md border-2 w-fit p-5 font-bold text-2xl max-md:text-lg ">
+            <div className="rounded-md border-2 w-fit p-5 font-bold text-2xl text-coral-red max-md:text-lg cursor-pointer ">
               {cartItems[products._id].quantity}
             </div>
           ) : (
-            <div className="rounded-md border-2 w-fit p-5 font-bold text-2xl max-md:text-lg ">Add</div>
+            <div className="rounded-md border-2 w-fit p-5 font-bold text-2xl text-coral-red max-md:text-lg cursor-pointer ">Add</div>
           )}
           <div
-            className="rounded-md border-2 w-fit p-5 font-bold text-2xl max-md:text-lg cursor-pointer"
+            className="rounded-md border-2 w-fit p-5 font-bold text-2xl text-coral-red max-md:text-lg cursor-pointer"
             onClick={() => {
               if (products.in_stock) {
                 dispatch(addToCart(products));

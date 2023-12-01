@@ -70,14 +70,16 @@ const Header = () => {
         </nav>
         <div className=" flex gap-5 max-md:flex-col">
           {isItemInLocalStorage("userInfo") ? (
-            <div
-              className="border border-coral-red px-4 py-2 rounded-md font-bold max-sm:font-medium max-sm:px-6 max-sm:py- w-fit text-white max-md:mt-3 bg-coral-red hover:bg-red-500"
-              onClick={() => {
-                localStorage.removeItem("userInfo");
-              }}
-            >
-              logout
-            </div>
+            <NavLink to="auth">
+              <div
+                className="border border-coral-red px-4 py-2 rounded-md font-bold max-sm:font-medium max-sm:px-6 max-sm:py- w-fit text-white max-md:mt-3 bg-coral-red hover:bg-red-500"
+                onClick={() => {
+                  localStorage.removeItem("userInfo");
+                }}
+              >
+                logout
+              </div>
+            </NavLink>
           ) : (
             <NavLink to="auth">
               <div className="border border-coral-red px-4 py-2 rounded-md font-bold max-sm:font-medium max-sm:px-6 max-sm:py- w-fit text-white max-md:mt-3 bg-coral-red hover:bg-red-500">

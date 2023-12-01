@@ -28,13 +28,13 @@ const Cart = () => {
       }
     );
     const session = await response.json();
-    console.log(session)
+    // console.log(session)
     const result = stripe.redirectToCheckout({
       sessionId: session.id,
     });
 
     if (result.error) {
-      console.log(result.error);
+      // console.log(result.error);
     }
   };
   if (Object.keys(cartItems).length === 0)

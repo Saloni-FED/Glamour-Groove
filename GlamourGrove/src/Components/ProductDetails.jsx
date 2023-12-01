@@ -10,7 +10,7 @@ const ProductDetails = () => {
   let dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
   let { _id } = useParams();
-  console.log(_id)
+  // console.log(_id)
   let [product, setProducts] = useProduct();
 
   if (product.length == 0)

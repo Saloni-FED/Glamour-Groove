@@ -4,7 +4,7 @@ const SearchMain = ({ _id, image, price, title }) => {
   return (
     <div className="font-montserrat">
       <div className="card md:w-52 my-7 ">
-        <Link to={`/main/${_id}`}>
+        <Link to={`/${_id}`}>
           {" "}
           <img src={image} alt="" className="w-full h-64  rounded-3xl" />
         </Link>

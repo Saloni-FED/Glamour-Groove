@@ -20,7 +20,7 @@ const Cart = () => {
       "Content-Type": "application/json",
     };
     const response = await fetch(
-      "http://localhost:3000/api/create-checkout-session",
+      "https://glamour-groove-server.onrender.com/api/create-checkout-session",
       {
         method: "POST",
         headers: headers,

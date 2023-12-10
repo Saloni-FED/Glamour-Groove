@@ -10,6 +10,7 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   // Payment
   const handleCheckout = async () => {
+    console.log("checkout")
     const stripe = await loadStripe(
       "pk_test_51NxlxxSFBSOzDXjIrAzuKciKK70wt5KvtedMAPK43CGhwhvYefAAai9cMgGjJvQ4xnFerZaSf33Nqsmis5v39elA00xWxzETLu"
     );
@@ -28,13 +29,13 @@ const Cart = () => {
       }
     );
     const session = await response.json();
-    // console.log(session)
+    console.log(session)
     const result = stripe.redirectToCheckout({
       sessionId: session.id,
     });
 
     if (result.error) {
-      // console.log(result.error);
+      console.log(result.error);
     }
   };
   if (Object.keys(cartItems).length === 0)

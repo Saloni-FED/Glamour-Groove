@@ -3,9 +3,10 @@ import mongoose from "mongoose";
 import cors from "cors";
 import Products from "./models/Product.js";
 import { Stripe } from "stripe";
-import dotenv from 'dotenv'
-dotenv.config()
-console.log(process.env.SECURE_TEST)
+import dotenv from "dotenv";
+dotenv.config();
+console.log(process.env.SECURE_TEST);
+// const stripe = new Stripe(process.env.STRIPE_TEST);
 const stripe = new Stripe(process.env.STRIPE_TEST);
 
 const app = express();
@@ -30,7 +31,6 @@ app.use(express.json());
 // User Routes
 app.use("/users", Users);
 
-
 // Get Product From Mongodb
 app.get("/product", async (req, res) => {
   try {
@@ -44,6 +44,8 @@ app.get("/product", async (req, res) => {
 
 // Payment
 app.post("/api/create-checkout-session", async (req, res) => {
+  console.log("stripe api")
+  console.log(req.body);
   const { products } = req.body;
 
   const lineItems = products.map((product) => ({
@@ -63,7 +65,7 @@ app.post("/api/create-checkout-session", async (req, res) => {
     line_items: lineItems,
     mode: "payment",
     success_url: `${process.env.CLIENT_URL}/success`,
-    cancel_url:  `${process.env.CLIENT_URL}/cancel`,
+    cancel_url: `${process.env.CLIENT_URL}/cancel`,
   });
 
   res.json({ id: session.id });

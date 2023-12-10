@@ -10,11 +10,12 @@ export const wishListSlice = createSlice({
       let itemsId = newItems._id;
       let isTrue;
       state.items[itemsId] = newItems;
+      localStorage.setItem("myWish", JSON.stringify(state.items));
     },
     removeWishListItems: (state, action) => {
       let itemId = action.payload;
       delete state.items[itemId];
-      state.isTrue = false;
+      localStorage.setItem("myWish", JSON.stringify(state.items));
     },
   },
 });

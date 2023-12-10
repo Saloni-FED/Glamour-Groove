@@ -19,18 +19,24 @@ export const cartSlice = createSlice({
           quantity: 1,
         };
       }
+      localStorage.setItem("myCart", JSON.stringify(state.cartItems));
     },
     removeFromCart: (state, action) => {
       if (state.cartItems[action.payload].quantity >= 1) {
         state.cartItems[action.payload].quantity -= 1;
       }
+
       if (state.cartItems[action.payload].quantity < 1) {
         delete state.cartItems[action.payload];
+        localStorage.removeItem("myCart");
       }
+
+      localStorage.setItem("myCart", JSON.stringify(state.cartItems));
     },
-    removeAll:(state)=>{
-      state.cartItems = {}
-    }
+    removeAll: (state) => {
+      state.cartItems = {};
+      localStorage.removeItem("myCart");
+    },
   },
 });
 export const { addToCart, removeFromCart, removeAll } = cartSlice.actions;

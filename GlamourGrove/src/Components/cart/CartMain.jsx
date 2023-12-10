@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { removeFromCart,addToCart } from "../../features/cart/cartSlice";
 
 const CartMain = ({ description, quantity, price, image, _id }) => {
+  console.log(quantity)
   let dispatch = useDispatch();
   const handleAddToCart = () => {
     const product = {

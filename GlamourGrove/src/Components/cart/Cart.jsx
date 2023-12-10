@@ -8,14 +8,18 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 // Component
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
+  let localCartData = localStorage.getItem("myCart");
+  let localData = JSON.parse(localCartData)
+
+  
   // Payment
   const handleCheckout = async () => {
-    console.log("checkout")
+    console.log("checkout");
     const stripe = await loadStripe(
       "pk_test_51NxlxxSFBSOzDXjIrAzuKciKK70wt5KvtedMAPK43CGhwhvYefAAai9cMgGjJvQ4xnFerZaSf33Nqsmis5v39elA00xWxzETLu"
     );
     const body = {
-      products: Object.values(cartItems),
+      products: Object.values(localData),
     };
     const headers = {
       "Content-Type": "application/json",
@@ -29,7 +33,7 @@ const Cart = () => {
       }
     );
     const session = await response.json();
-    console.log(session)
+    console.log(session);
     const result = stripe.redirectToCheckout({
       sessionId: session.id,
     });
@@ -38,7 +42,7 @@ const Cart = () => {
       console.log(result.error);
     }
   };
-  if (Object.keys(cartItems).length === 0)
+  if (Object.keys(localData).length === 0)
     return (
       <div className="text-center font-montserrat text-2xl flex flex-col text-slate-gray">
         Cart is empty
@@ -56,7 +60,7 @@ const Cart = () => {
         <li className="w-1/3  text-center">Price</li>
         <li className="w-1/3 text-center ">Qty</li>
       </ul>
-      {Object.values(cartItems).map((item) => (
+      {Object.values(localData).map((item) => (
         <CartMain {...item} key={item._id} />
       ))}
       <div className="flex flex-wrap gap-4 justify-around mt-10">

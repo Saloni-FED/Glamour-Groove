@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 const WishList = () => {
   const store = useSelector((state) => state.wishList.items);
   let wishLocalStorage = localStorage.getItem("myWish")
-  let keyLocal = JSON.parse(wishLocalStorage)
-  let keys = Object.values(keyLocal)
-  if (keys.length === 0 || store)
+  let keyLocal = wishLocalStorage ? JSON.parse(wishLocalStorage) : null;
+
+  
+  if (!keyLocal || Object.values(keyLocal).length === 0 )
     return (
       <div className="text-center font-montserrat text-2xl flex flex-col text-slate-gray">
         Wishlist is empty
@@ -21,7 +22,7 @@ const WishList = () => {
     );
   return (
     <div className="flex flex-col justify-center items-center gap-3">
-      {keys.map((item) => {
+      {Object.values(keyLocal).map((item) => {
         return <WishlistMain {...item} key={item._id} />;
       })}
     </div>

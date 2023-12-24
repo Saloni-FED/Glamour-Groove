@@ -9,7 +9,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   let localCartData = localStorage.getItem("myCart");
-  let localData = JSON.parse(localCartData)
+  let localData = localCartData ? JSON.parse(localCartData) : null
 
   
   // Payment
@@ -42,7 +42,7 @@ const Cart = () => {
       console.log(result.error);
     }
   };
-  if (Object.keys(localData).length === 0)
+  if (!localData || Object.keys(localData).length === 0)
     return (
       <div className="text-center font-montserrat text-2xl flex flex-col text-slate-gray">
         Cart is empty

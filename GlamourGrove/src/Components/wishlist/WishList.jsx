@@ -8,7 +8,7 @@ const WishList = () => {
   let wishLocalStorage = localStorage.getItem("myWish")
   let keyLocal = JSON.parse(wishLocalStorage)
   let keys = Object.values(keyLocal)
-  if (keys.length === 0)
+  if (keys.length === 0 || store)
     return (
       <div className="text-center font-montserrat text-2xl flex flex-col text-slate-gray">
         Wishlist is empty

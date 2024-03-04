@@ -1,14 +1,13 @@
 // All imports
-import React, { useState } from "react";
+import React, { useState } from "react"; // Add useState import
 import { useProduct } from "../../Utils/CustomHooks/useProduct";
 import ShopMain from "./ShopMain";
 import sortByAsc from "../../Utils/HelperFunction/sortByAsc";
 import sortByDes from "../../Utils/HelperFunction/sortByDes";
 
-
 // Component
 const Shop = () => {
-  const [products, setProducts] = useProduct();
+  const [products,loading, setProducts] = useProduct();
   const [originalProducts] = useProduct();
   const [isAsc, setIsAsc] = useState(false);
   const [isDesc, setIsDesc] = useState(false);
@@ -19,19 +18,22 @@ const Shop = () => {
     setIsAsc(true);
     setIsDesc(false);
   };
-  const handleSortBydes = () => {
-    const sort = sortByDes(products);
-    setProducts(sort);
+  
+  const handleSortByDes = () => { 
+    const sorted = sortByDes(products);
+    setProducts(sorted);
     setIsAsc(false);
     setIsDesc(true);
   };
+
   const handleClear = () => {
     setProducts(originalProducts);
-    setIsAsc(false);
+    setIsAsc(false); 
     setIsDesc(false);
   };
 
   // Rendering
+  if(loading) return <h1>Loading...</h1>
   return products.length === 0 ? (
     <><h1 className="text-center font-palanquin text-xl text-coral-red">Loading.....</h1></>
   ) : (
@@ -46,16 +48,16 @@ const Shop = () => {
           <button
             className={
               "py-2 px-6 rounded-md text-sm border-2  text-slate-gray  cursor-pointer font-montserrat" +
-              (isDesc ? "bg-purple-200" : " ")
+              (isDesc ? " bg-red-300 text-white" : "") 
             }
-            onClick={handleSortBydes}
+            onClick={handleSortByDes} 
           >
             High to Low 👇
           </button>
           <button
             className={
               "py-2 px-6 rounded-md text-sm border-2 text-slate-gray cursor-pointer font-montserrat" +
-              (isAsc ? "bg-purple-200" : " ")
+              (isAsc ? " bg-red-300 text-white" : "") 
             }
             onClick={handleSortByAsc}
           >
@@ -76,7 +78,6 @@ const Shop = () => {
           ))}
         </div>
       </section>
-      
     </>
   );
 };

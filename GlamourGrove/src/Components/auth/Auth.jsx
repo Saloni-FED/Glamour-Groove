@@ -14,6 +14,7 @@ const Auth = () => {
     formState: { errors, isSubmitting },
   } = useForm();
   const navigate = useNavigate();
+  
 
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);

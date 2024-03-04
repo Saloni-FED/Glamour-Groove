@@ -36,7 +36,7 @@ const Header = () => {
           />
         ) : (
           <RxHamburgerMenu
-            className="hidden max-md:block text-xl font-bold text-coral-red "
+            className="hidden max-md:block text-2xl font-bold text-coral-red "
             onClick={() => {
               setIsOpen(!isOpen);
             }}

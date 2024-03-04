@@ -1,20 +1,26 @@
 // Import
-import React from "react";
 import { useSelector } from "react-redux";
 import CartMain from "./CartMain";
 import { Link } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 // Component
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   let localCartData = localStorage.getItem("myCart");
   let localData = localCartData ? JSON.parse(localCartData) : null
-
-  
+  const userInfo = localStorage.getItem("userInfo")
+  const navigate = useNavigate()
+  console.log(userInfo)
   // Payment
   const handleCheckout = async () => {
-    console.log("checkout");
+    if (!userInfo) {
+      navigate('/auth')
+      return
+    }
+
+    // console.log("checkout");
     const stripe = await loadStripe(
       "pk_test_51NxlxxSFBSOzDXjIrAzuKciKK70wt5KvtedMAPK43CGhwhvYefAAai9cMgGjJvQ4xnFerZaSf33Nqsmis5v39elA00xWxzETLu"
     );
@@ -48,7 +54,7 @@ const Cart = () => {
         Cart is empty
         <button className="flex justify-center p-3">
           <Link to="/shop">
-            <IoIosArrowRoundBack className=" text-3xl rounded-full font-bold text-coral-red" />
+            <IoIosArrowRoundBack className=" text-3xl rounded-full font-bold text-coral-red hover:-translate-x-2 duration-300" />
           </Link>
         </button>
       </div>

@@ -31,7 +31,7 @@ const Hero = () => {
           alt="shoes1"
           width="200"
           height="200"
-          className="relative rounded-full transition-all duration-300 hover:scale-150"
+          className="relative rounded-full transition-all duration-500 hover:scale-125 cursor-pointer"
         />
         <div className="absolute -bottom-[8%]">
           <div className="flex gap-4 sm:gap-6 sm:left-[10%] max-sm:px-6 ">

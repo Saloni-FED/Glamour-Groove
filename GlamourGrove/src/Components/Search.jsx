@@ -10,9 +10,11 @@ import SearchMain from "./SearchMain";
 const Search = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [searchVal, setSearchVal] = useState("");
-  let [productSearch, setProductSearch] = useProduct();
+  let [productSearch, loading, setProductSearch] = useProduct();
+  console.log(loading)
   let products = toFind(searchVal, productSearch);
   
+  if(loading) return <h1 className="text-center font-montserrat text-xl text-coral-red">Loading....</h1>
   // Rendering
   return (
     <>

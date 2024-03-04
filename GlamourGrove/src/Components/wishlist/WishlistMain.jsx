@@ -12,8 +12,8 @@ const WishlistMain = ({ title, image, description, price, size, _id }) => {
     state.wishList.items.hasOwnProperty(_id)
   );
   return (
-    <div className=" md:w-1/2 gap-3 max-md:gap-1 w-full border-b-2 py-5 flex justify-center items-center font-montserrat ">
-      <img src={image} alt="" className="w-56 md:h-56 h-40 w-30  rounded-md" />
+    <div className=" md:w-1/2 gap-3 max-md:gap-1 w-full border-b-2 py-3 flex md:justify-center md:items-center font-montserrat ">
+      <img src={image} alt="" className="w-56 md:h-56 h-40 w-30  rounded-md mx-5" />
       <div className=" w-full ">
         <h2 className="text-coral-red font-bold max-md:font-light text-sm md:text-lg">{description}</h2>
         <h4 className="mt-2 text-slate-gray ">{title}</h4>

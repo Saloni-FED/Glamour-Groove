@@ -33,7 +33,7 @@ const Shop = () => {
   };
 
   // Rendering
-  if(loading) return <h1>Loading...</h1>
+  if(loading) return <h1 className="text-center mt-10 text-2xl text-coral-red">Loading...</h1>
   return products.length === 0 ? (
     <><h1 className="text-center font-palanquin text-xl text-coral-red">Loading.....</h1></>
   ) : (

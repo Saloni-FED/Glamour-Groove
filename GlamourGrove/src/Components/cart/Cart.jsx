@@ -20,7 +20,7 @@ const Cart = () => {
       return
     }
 
-    // console.log("checkout");
+    console.log("checkout");
     const stripe = await loadStripe(
       "pk_test_51NxlxxSFBSOzDXjIrAzuKciKK70wt5KvtedMAPK43CGhwhvYefAAai9cMgGjJvQ4xnFerZaSf33Nqsmis5v39elA00xWxzETLu"
     );

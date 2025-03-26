@@ -1,5 +1,5 @@
-# Glamour-Groove
-An Ecommerce Website using ReactJs , Node js , Express js and Mongodb
+# Glamour-Groove 
+An Ecommerce Website using ReactJs , Node js , Redux Toolkit , Tailwind CSS , Express js and Mongodb
 # GlamourGroove ❤️
 
 GlamourGroove is an online clothing store that brings the latest fashion trends right to your fingertips. Dive into a world of elegance and style. From casual wear to haute couture, our curated collection caters to every fashion enthusiast.

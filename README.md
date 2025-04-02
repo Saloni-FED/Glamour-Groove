@@ -31,3 +31,5 @@ Demo-: https://glamour-groove.netlify.app/
 - Adding Protected routes
 - Pagination
 - Order Summary
+- Optimization
+  

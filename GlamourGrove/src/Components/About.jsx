@@ -6,7 +6,7 @@ const About = () => {
     <div className=" w-full md:w-1/2 m-auto mt-20 font-montserrat">
       <h1 className="text-center text-coral-red font-bold text-3xl">
         Welcome to GlamourGrove Clothing , where fashion meets individuality and
-        quality
+        quality and Equality
       </h1>
       <p className="text-xl text-slate-gray font-bold mt-5 text-center">
         Our collections are a reflection of the latest fashion trends while
